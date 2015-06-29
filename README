@@ -1,0 +1,21 @@
+To get n-2 choose 2(n = num taxa) quartets from newick string (one tree) stored in file 'infile' and print them in 'quarfile' run
+(note that you should probably end string with ';' becuase treedist needs it)
+	
+	./treequar.sh infile quarfile
+
+To (in addition to finding the quartets and printing them) run the quartets through max-cut and
+check the returned value of max-cut (stored in file 'intree2') against the original tree in 'infile' using treedist run
+
+	./treequar.sh -c infile quarfile
+
+To return "efficient" quartets use the -e option 
+
+	./treequar.sh -e infile quarfile
+
+
+NOTE: Do not use the following file names for trees or quarfiles (as maxcut or tree cut will overwrite them)
+	intree
+	intree2
+	outfile
+
+send questions, complaints and/or moral objections to webern2@winthrop.edu
