@@ -1,3 +1,11 @@
+To use original tarball put treemeth.tar:
+
+To start from scratch using the tarball treemeth.tar which has all scripts packaged together, download to your favorite diretory and run tar -xvf treemeth.tar on the command line, you can do all the work in the treemeth directory that is extracted, all you have to do is put the tree files you want to use in that directory. This tarball will contain a version of this README text that follows:
+
+
+
+
+
 To get n-2 choose 2(n = num taxa) quartets from newick string (one tree) stored in file 'infile' and print them in 'quarfile' run
 (note that you should probably end string with ';' becuase treedist needs it)
 	
