@@ -1,5 +1,0 @@
-the shell script quartetsfromlist.sh takes a file containing a list of newick gene trees as input andthen makes a file that contains the output quartets formatted for input to wQMC. I need to comment ou a bunch of testing stuff and then get the pipeline running on campus cluster before the experiments will be done.  
-
-Also, will need to do side by side comparison of wQMC analysis on ASTRAL-II 50 taxon data sets with all 50 choose 4 quartets. This should be enough experiment for IEEE/TCBB paper. 
-
-Last update 6.29.15
