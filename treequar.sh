@@ -1,16 +1,16 @@
 #!/bin/bash
-eff_on=0 #efficient quartets off by default
+link_on=0 #efficient quartets off by default
 check_on=0 #check quartet off by default
 if [ $# -eq 0 ] 
 then
 	echo "Need arguments in form ./treequar.sh [opts] tree_file output_file"
 	exit 1
 fi
-while getopts ":ec" opt
+while getopts ":lc" opt
 do
 	case $opt in
-		e)
-			eff_on=1
+		l)
+			link_on=1
 			;;
 		c)
 			check_on=1
@@ -44,9 +44,9 @@ then
 	do
 		tree=$line
 		echo -n "`echo "$tree" > temp`" #input for treemeth.py
-		if [ $eff_on -eq 1 ]
+		if [ $link_on -eq 1 ]
 		then
-			echo "`python2.7 treemeth.py temp $outfile eff`"
+			echo "`python2.7 treemeth.py temp $outfile link`"
 		else
 			echo "`python2.7 treemeth.py temp $outfile`"
 		fi	
@@ -55,9 +55,9 @@ then
 	done < $intree
 	echo "`echo -e $distopts | ./treedist`"
 	echo "treedist run, look in outfile for result"
-elif [ $eff_on -eq 1 ]
+elif [ $link_on -eq 1 ]
 then
-	echo "`python2.7 treemeth.py $infile $outfile eff`"
+	echo "`python2.7 treemeth.py $infile $outfile link`"
 else
 	echo "`python2.7 treemeth.py $infile $outfile`"
 fi	

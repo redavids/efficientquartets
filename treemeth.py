@@ -3,6 +3,7 @@
 #Note: treemeth stands for "tree methods" it is not a kind of meth for trees
 #Note: For Python 2.7, also needs pyparsing module for Python2
 #EDIT: Changed some things, it should now work for Python3 as well as 2
+#EDIT: All quartets clarified to mean ALL efficient Quartets.  
 import sys
 import pyparsing as pp
 from itertools import combinations
@@ -132,8 +133,8 @@ class UnrootedTree:
 				break;
 		return [self.map_to_nodes(x) for x in quar] 
 			
-	def all_quartets(self):
-		"""return list of all quartets in tree"""
+	def eqs_quartets(self):
+		"""return list of all efficient quartets in tree"""
 		quars = []
 		nd_pairs = list(combinations(range(len(self.nlist)), 2))
 		for i in nd_pairs:
@@ -141,28 +142,25 @@ class UnrootedTree:
 				quars.append(self.quartet(i[0], i[1]))
 		return quars
 	
-	def efficient_quartets(self):
-		"""Returns list of all quartets in tree for node pairs that satisfy one
-		of the efficient pair conditions (see efficient_pair())
+	def linked_quartets(self):
+		"""Returns list of linked system of quartets
 		""" 
 		nd_pairs = list(combinations(range(len(self.nlist)), 2))
-		return [self.quartet(x[0], x[1]) for x in nd_pairs if self.efficient_pair(x[0], x[1])]
+		return [self.quartet(x[0], x[1]) for x in nd_pairs if self.linked_pair(x[0], x[1])]
 
-	def efficient_pair(self, nd1, nd2):
-		"""Return true if node pair indicated by node ids satisfies one of the condition
-			-Path between them is length 1 or 2 
-			-One node is adjacent to at least two leaf nodes (cherry node)
-			-Path between them has at least three single child edges
+	def linked_pair(self, nd1, nd2):
+		"""Return true if node pair indicated by node ids has path length 1 between them.
 		"""
-		efficient = False	
+		linked = False	
 		if (not leaf(self.get_nd(nd1))) and (not leaf(self.get_nd(nd2))):  
-			if self.dists[nd1][nd2] <= 2:
-				efficient = True
-			elif self.adj_leaves(nd1) == 2 or self.adj_leaves(nd2) == 2:
-				efficient = True
+			if self.dists[nd1][nd2] <= 1:
+				linked = True
+		'''	elif self.adj_leaves(nd1) == 2 or self.adj_leaves(nd2) == 2:
+				linked = True
 			elif self.single_leaf_series(nd1, nd2):
-				efficient = True
-		return efficient
+                        	linked = True
+                '''
+		return linked
 
 	def single_leaf_series(self, nd1, nd2):
 		"""Return true if path between nd1 and nd2 (node_ids) is a series of three 
@@ -478,7 +476,7 @@ if __name__ == "__main__":
 #	s = raw_input("Filename: ")
 #	while s:
 #		tr = loadtree(s)
-#		q = tr.efficient_quartets()
+#		q = tr.linked_quartets()
 #		print("")
 #		print_quartets(q)
 #		print("")
@@ -487,14 +485,11 @@ if __name__ == "__main__":
 	outfile = sys.argv[2]
 	tr = loadtree(infile)
 	start = time.clock()
-	if len(sys.argv) > 3 and sys.argv[3] == "eff":
-		q = tr.efficient_quartets()
+	if len(sys.argv) > 3 and sys.argv[3] == "link":
+		q = tr.linked_quartets()
 	else:
-		q = tr.all_quartets()
+		q = tr.eqs_quartets()
 	print_quartets(q, outfile)
 	#print("size={}".format(tr.size))
 	print("Printed quartets of tree from file '{}' to the file '{}'".format(infile, outfile))
 	print("The time it took to compute quartets to send to maxcut was '{}' seconds".format(time.clock()-start))
-
-
-		
