@@ -3,10 +3,7 @@ To use original tarball put treemeth.tar:
 To start from scratch using the tarball treemeth.tar which has all scripts packaged together, download to your favorite diretory and run tar -xvf treemeth.tar on the command line, you can do all the work in the treemeth directory that is extracted, all you have to do is put the tree files you want to use in that directory. This tarball will contain a version of this README text that follows:
 
 
-
-
-
-To get n-2 choose 2(n = num taxa) quartets from newick string (one tree) stored in file 'infile' and print them in 'quarfile' run
+To get n-2 choose 2(n = number of taxa) efficient quartets from newick string (one tree) stored in file 'infile' and print them in 'quarfile' run
 (note that you should probably end string with ';' becuase treedist needs it)
 	
 	./treequar.sh infile quarfile
@@ -16,9 +13,9 @@ check the returned value of max-cut (stored in file 'intree2') against the origi
 
 	./treequar.sh -c infile quarfile
 
-To return "efficient" quartets use the -e option 
+To return "linked" quartets use the -l option 
 
-	./treequar.sh -e infile quarfile
+	./treequar.sh -l infile quarfile
 
 
 NOTE: Do not use the following file names for trees or quarfiles (as maxcut or tree cut will overwrite them)
