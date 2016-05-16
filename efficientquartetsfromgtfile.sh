@@ -14,7 +14,7 @@ for i in `cat $2/$1`; do
     echo $i > $2/doody
     python getridofedgeweights.py $2/doody $2/newdoody 
     #echo head -1 tmpfile
-    /Users/ruthdavidson/code/treemeth/treequar.sh -e $2/newdoody  $2/$1.ruth.$line
+    /Users/ruthdavidson/code/treemeth/treequar.sh $2/newdoody  $2/$1.ruth.$line
 done
 cat $2/$1.ruth.* > $2/$1.listofQMCquartets
 python quartetstoweightedquartets.py $2/$1.listofQMCquartets $2/$1.efficientWQMCquartets
