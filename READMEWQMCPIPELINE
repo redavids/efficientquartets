@@ -1,3 +1,5 @@
+WARNING: THIS README REQUIRES UPDATES 5.15.16
+
 Most summary methods use files of gene trees to produce a species trees. The shell script quartetsfromlist.sh takes a file containing a list of newick gene trees as input andthen makes a file that contains the output quartets formatted for input to wQMC.  
 
 The script quartetsfromlist.sh requires the scripts efficientquartetsfromgtfile.sh, quartetstoweightedquartets.py, getridofedgeweights.py
