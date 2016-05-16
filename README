@@ -8,6 +8,8 @@ To get n-2 choose 2(n = number of taxa) efficient quartets from newick string (o
 	
 	./treequar.sh infile quarfile
 
+Please note that QMC and wQMC require taxon names to be nonnegative integers. 
+
 To (in addition to finding the quartets and printing them) run the quartets through max-cut and
 check the returned value of max-cut (stored in file 'intree2') against the original tree in 'infile' using treedist run
 
