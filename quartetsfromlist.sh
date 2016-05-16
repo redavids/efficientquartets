@@ -10,7 +10,7 @@ for i in `cat $1`; do
     echo $i > doody
     python getridofedgeweights.py doody newdoody 
     #echo head -1 tmpfile
-    /Users/ruthdavidson/code/treemeth/treequar.sh -e /Users/ruthdavidson/code/treemeth/newdoody /Users/ruthdavidson/code/treemeth/$1.ruth.$line
+    /Users/ruthdavidson/code/treemeth/treequar.sh /Users/ruthdavidson/code/treemeth/newdoody /Users/ruthdavidson/code/treemeth/$1.ruth.$line
 done
 cat /Users/ruthdavidson/code/treemeth/$1.ruth.* > /Users/ruthdavidson/code/treemeth/$1.listofQMCquartets
 python quartetstoweightedquartets.py /Users/ruthdavidson/code/treemeth/$1.listofQMCquartets /Users/ruthdavidson/code/treemeth/$1.WQMCquartets
