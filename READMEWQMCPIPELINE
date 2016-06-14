@@ -1,4 +1,3 @@
-WARNING: THIS README REQUIRES UPDATES 5.15.16
 
 Most summary methods use files of gene trees to produce a species trees. The shell script quartetsfromlist.sh takes a file containing a list of newick gene trees as input andthen makes a file that contains the output quartets formatted for input to wQMC.  
 
@@ -10,6 +9,6 @@ For the scripts to work on your machine, you must have dendropy installed, avail
 
 Dendropy also has a google users group and github with the most up-to-date information.  
 
-These scripts have only been tested on a Macintosh OSX 10.9.5
+These scripts have been tested on a Macintosh OSX 10.9.5 and Ubuntu 14.04.2 LTS operating systems. Please contact redavid2@illinois.edu for bug reports or questions. 
 
-Last updated 12/17/15
+Last updated 6/13/16
