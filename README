@@ -1,6 +1,8 @@
-To use original tarball put treemeth.tar:
+"efficient quartets" is a tool for boosting quartet agglomeration methods by reducing the number of quartets representing source trees input to phylogenetic tree-building and supertree methods. This software was used to produce the data analysis results in the submitted publication " Efficient Quartet Representations of Trees and Applications to Supertree and Summary Methods.  arXiv: 1512.05302" by Ruth Davidson, MaLyn Lawhorn, Joseph Rusinko, and Noah Weber. 
 
-To start from scratch using the tarball treemeth.tar which has all scripts packaged together, download to your favorite diretory and run tar -xvf treemeth.tar on the command line, you can do all the work in the treemeth directory that is extracted, all you have to do is put the tree files you want to use in that directory. This tarball will contain a version of this README text that follows:
+Installation and running instructions:
+
+To start from scratch using the tarball treemeth.tar which has all scripts packaged together, download to your favorite diretory and run tar -xvf treemeth.tar on the command line. You can work in the treemeth directory that is extracted, all you have to do is put the tree files you want to use in that directory. This tarball will contain a version of this README text that follows:
 
 
 To get n-2 choose 2(n = number of taxa) efficient quartets from newick string (one tree) stored in file 'infile' and print them in 'quarfile' run
@@ -8,7 +10,11 @@ To get n-2 choose 2(n = number of taxa) efficient quartets from newick string (o
 	
 	./treequar.sh infile quarfile
 
+This software tool has primarily been used with QMC and wQMC so far, though it can produce efficient quartet representations suitable for input to any quartet-agglomeration or supertree method.
+
 Please note that QMC and wQMC require taxon names to be nonnegative integers. 
+
+The software wQMC, which contains QMC as an option by running without weights onthe quartets, is described in the publication "Avni, E., Cohen, R., & Snir, S. (2015). Weighted quartets phylogenetics. Systematic biology, 64(2), 233-242."
 
 To (in addition to finding the quartets and printing them) run the quartets through max-cut and
 check the returned value of max-cut (stored in file 'intree2') against the original tree in 'infile' using treedist run
@@ -20,9 +26,9 @@ To return "linked" quartets use the -l option
 	./treequar.sh -l infile quarfile
 
 
-NOTE: Do not use the following file names for trees or quarfiles (as maxcut or tree cut will overwrite them)
+NOTE: Do not use the following file names for trees or quarfiles (as maxcut or tree-cut will overwrite them)
 	intree
 	intree2
 	outfile
 
-send questions, complaints and/or moral objections to webern2@winthrop.edu or redavid2@illinois.edu
+Please send questions to webern2@winthrop.edu or redavid2@illinois.edu.
