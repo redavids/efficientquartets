@@ -17,6 +17,5 @@ for i in `cat $2/$1`; do
     /home/redavid2/phylogenetics/efficientquartets/treequar.sh $2/newfoo  $2/$1.ruth.$line
 done
 cat $2/$1.ruth.* > $2/$1.listofQMCquartets
-python quartetstoweightedquartets.py $2/$1.listofQMCquartets $2/$1.efficientWQMCquartets
-#rm /Users/ruthdavidson/code/treemeth/$1.listofQMCquartets
+python quartetstoweightedquartets.py $2/$1.listofQMCquartets $2/$1.efficientWQMCquartets:
 rm $2/$1.ruth.*
