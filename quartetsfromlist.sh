@@ -7,10 +7,10 @@
 line=0
 for i in `cat $1`; do
     ((line++))
-    echo $i > doody
-    python getridofedgeweights.py doody newdoody 
+    echo $i > foo
+    python getridofedgeweights.py foo newfoo 
     #echo head -1 tmpfile
-    /Users/ruthdavidson/code/treemeth/treequar.sh /Users/ruthdavidson/code/treemeth/newdoody /Users/ruthdavidson/code/treemeth/$1.ruth.$line
+    /home/redavid2/phylogenetics/efficientquartets/treequar.sh /home/redavid2/phylogenetics/efficientquartets/newfoo /home/redavid2/phylogenetics/efficientquartets/$1.ruth.$line
 done
-cat /Users/ruthdavidson/code/treemeth/$1.ruth.* > /Users/ruthdavidson/code/treemeth/$1.listofQMCquartets
-python quartetstoweightedquartets.py /Users/ruthdavidson/code/treemeth/$1.listofQMCquartets /Users/ruthdavidson/code/treemeth/$1.WQMCquartets
+cat /home/redavid2/phylogenetics/efficientquartets/efficientquartets/$1.ruth.* > /home/redavid2/phylogenetics/efficientquartets/$1.listofQMCquartets
+python quartetstoweightedquartets.py /home/redavid2/phylogenetics/efficientquartets/$1.listofQMCquartets /home/redavid2/phylogenetics/efficientquartets/$1.WQMCquartets
