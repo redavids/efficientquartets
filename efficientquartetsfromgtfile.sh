@@ -11,10 +11,10 @@
 line=0
 for i in `cat $2/$1`; do
     ((line++))
-    echo $i > $2/doody
-    python getridofedgeweights.py $2/doody $2/newdoody 
+    echo $i > $2/foo
+    python getridofedgeweights.py $2/foo $2/newfoo
     #echo head -1 tmpfile
-    /Users/ruthdavidson/code/treemeth/treequar.sh $2/newdoody  $2/$1.ruth.$line
+    /home/redavid2/phylogenetics/efficientquartets/treequar.sh $2/newfoo  $2/$1.ruth.$line
 done
 cat $2/$1.ruth.* > $2/$1.listofQMCquartets
 python quartetstoweightedquartets.py $2/$1.listofQMCquartets $2/$1.efficientWQMCquartets
