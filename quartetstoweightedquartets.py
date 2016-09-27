@@ -4,7 +4,7 @@ import copy
 #this script is for taking a list of QMC formatted quartets and turning them into wQMC formatted quartets by weight=frequency
 
 
-infile = str(sys.argv[1])
+infile = /+str(sys.argv[1])
 
 outfile = str(sys.argv[2])
 
