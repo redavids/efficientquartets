@@ -6,7 +6,7 @@ then
 	echo "Need arguments in form ./treequar.sh [opts] tree_file output_file"
 	exit 1
 fi
-while getopts ":lc" opt
+while getopts ":ec" opt
 do
 	case $opt in
 		l)
