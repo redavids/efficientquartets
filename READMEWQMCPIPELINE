@@ -1,14 +1,22 @@
 
 Most summary methods use files of gene trees to produce a species trees. The shell script quartetsfromlist.sh takes a file containing a list of newick gene trees as input, and then makes a file that contains the output quartets formatted for input to wQMC.  
 
-The script quartetsfromlist.sh requires the scripts efficientquartetsfromgtfile.sh, quartetstoweightedquartets.py, getridofedgeweights.py. These all must be in the same directory.
+The script wQMCquartetsfromgenetreefile.sh depends on scripts automatically included in the directory created by the  git clone or tarball from this github: moving files will create errors. wQMCquartetsfromgenetreefile.sh takes one command line argument: the file path to the file containinga list of gene trees. it outputs a file in the same directory containing the gene tree file called *.WQMCquartets where * represents the name of your gene tree file. This file contains a list ofweighted quartets where the weight represents the sum, over the set of gene trees in your file of the  number of times each quartet appears in the efficientquartets representation of each gene tree. 
 
-File paths will have to be updated in all of the scripts.  
+Example usage (from UIUC Taub campus cluster): if you have 50 gene tree files and you want to have an efficient wQMC-input summary of each file, the loop
+
+for ind in `seq 1`; do ./wQMCquartetsfromgenetreefile.sh home/redavid2/phylogenetics/DATA/ASTRAL2.50Taxa/model.50.2000000.0.000001.true/$ind/truegenetrees
+
+will write a file truegenetrees.WQMCquartets in the same directory as truegenetrees
+
+Note this example is using a data set available in the supporting materials for the paper S. Mirarab and T. Warnow: "ASTRAL-II: coalescent-based species tree estimation with many hundreds of taxa and thousands of genes" available at  http://bioinformatics.oxfordjournals.org/content/31/12/i44
+
+File paths will have to be updated for your data set and note wQMC will only run on a linux operating system. 
 
 For the scripts to work on your machine, you must have dendropy installed, available at http://dendropy.org/   
 
 Dendropy also has a google users group and github with the most up-to-date information.  
 
-These scripts have been tested on a Macintosh OSX 10.9.5 and Ubuntu 14.04.2 LTS operating systems. Please contact redavid2@illinois.edu for bug reports or questions. 
+These scripts have been most recently tested on a Scientific Linux 6.1 (Linux 2.6.32) operating system. This is the Taub system.  Please contact redavid2@illinois.edu for bug reports or questions. 
 
 Last updated 9/18/16
