@@ -15,3 +15,4 @@ for i in `cat /$1`; do
 cat /$1.ruth.* > /$1.listofQMCquartets
 done
 python quartetstoweightedquartets.py /$1.listofQMCquartets /$1.WQMCquartets
+rm /$1.ruth.*
